@@ -11,6 +11,7 @@
 // Store topics element
 topics = document.querySelector('.topics');
 
+// API call
 axios
     .get('https://lambda-times-backend.herokuapp.com/topics')
     .then(response => {
@@ -20,7 +21,7 @@ axios
 // Tab component function
 const Tabulator = (topic) => {
     // Create element
-    let tab = document.createElement('div');
+    const tab = document.createElement('div');
     // Assign class
     tab.classList.add('tab');
     // Add content

@@ -12,10 +12,10 @@
 // Header component function
 function Header() {
     // Create elements
-    outer = document.createElement('div');
-    date = document.createElement('span');
-    title = document.createElement('h1');
-    temp = document.createElement('span');
+    const outer = document.createElement('div'),
+          date = document.createElement('span'),
+          title = document.createElement('h1'),
+          temp = document.createElement('span');
     // Add classes
     outer.classList.add('header');
     date.classList.add('date');
