@@ -26,13 +26,11 @@ axios
     .get('https://lambda-times-backend.herokuapp.com/articles')
     .then(result => {
         const subjects = Object.keys(result.data.articles);
-        subjects.forEach((subject) => {
-            result.data.articles[subject].map(article => cards.append(Articulator(article)));
-        })
+        subjects.forEach((subject) => result.data.articles[subject].map(article => cards.append(Articulator(article, subject))));
     });
 
 // Article component function
-const Articulator = (props) => {
+const Articulator = (props, type) => {
     // Create elements
     const card = document.createElement('div'),
           headline = document.createElement('div'),
@@ -40,6 +38,8 @@ const Articulator = (props) => {
           imgCont = document.createElement('div'),
           img = document.createElement('img'),
           attr = document.createElement('span');
+    // Add data attribute
+    card.dataset.topic = type;
     // Add classnames
     card.classList.add('card');
     headline.classList.add('headline');

@@ -26,7 +26,19 @@ const Tabulator = (topic) => {
     tab.classList.add('tab');
     // Add content
     tab.textContent = topic;
-    tab.dataset.topic = topic;
+    tab.dataset.topic = topic.match(/([^.]+)/)[0];
+    // Add event listener
+    tab.addEventListener('click', (event) => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card) => {
+            if (card.dataset.topic === tab.dataset.topic) {
+                card.style.display = 'block';
+            }
+            else {
+                card.style.display = 'none';
+            }
+        })
+    })
     // Return element
     return tab;
 }
