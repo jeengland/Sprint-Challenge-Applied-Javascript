@@ -26,6 +26,7 @@ const Tabulator = (topic) => {
     tab.classList.add('tab');
     // Add content
     tab.textContent = topic;
+    tab.dataset.topic = topic;
     // Return element
     return tab;
 }
